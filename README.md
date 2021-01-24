@@ -1,0 +1,3 @@
+# Python Animation Tutorial
+
+This repo contains basic Python animations. Although Python is mostly considered to be a high level scripting language, it can be useful for quickly visualizing and building intuition on new ideas. For more advanced simulations, the reader might consider a domain specific framework, such as [ROS](https://www.ros.org/), providing a feature-full robotics suite. However, these platforms often come with significant overhead, and can be time consuming to get up and running. The following scripts will demonstrate how easy it is to get started, which is what makes Python animations so awesome.

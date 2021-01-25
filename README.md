@@ -18,3 +18,16 @@ pip install matplotlib numpy
 ```
 
 If you prefer to use Python in an isolated workspace, checkout [Pipenv & Virtual Environments](https://docs.python-guide.org/dev/virtualenvs/). For a complete overview of the official best practices for package management, see the [Python Packaging User Guide](https://packaging.python.org/).
+
+## Code Structure
+
+There are many approaches we could take to generate an animation. For simplicity, we will separate the simulation from the animation. These scripts all have the following general structure:
+
+1. Run the simulation:
+	1. Initialize the parameters
+	2. Simulate some dynamics, logging values at each timestep
+2. Run the animation:
+	1. Initialize the plot
+	2. Add patches to the plot
+	3. Update the patches at each timestep using the logged values
+3. Play and optionally save the animation to a local file

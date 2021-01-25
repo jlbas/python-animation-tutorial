@@ -31,3 +31,17 @@ There are many approaches we could take to generate an animation. For simplicity
 	2. Add patches to the plot
 	3. Update the patches at each timestep using the logged values
 3. Play and optionally save the animation to a local file
+
+## Scripts
+
+Click to expand any of the following items to view a description and video of the corresponding script:
+
+<p>
+<details>
+<summary>Circle Scaling</summary>
+
+![Scaling a circle](media/circle_scaling.gif)
+
+This [script](src/circle_scaling.py) creates an animation for a circle fixed at the origin, being scaled up and down.
+</details>
+</p>

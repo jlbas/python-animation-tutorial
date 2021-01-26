@@ -68,6 +68,9 @@ This [script](src/circle_translation.py) creates an animation for a circle being
 
 ### Polygon Rotation
 
+![Rotating a polygon](media/polygon_rotation.gif)
+
+This [script](src/polygon_rotation.py) creates an animation for a rotating square. Notice the script uses the `Polygon` class as opposed to the seemingly simpler `Rectangle` class. This allows us to update the coordinates by performing a rotation using the `numpy` multiplication operator `@` and a rotation matrix.
 
 ## Contributing
 
@@ -76,8 +79,9 @@ If you feel the need to demonstrate additional animation functionalities, make a
 ```python
 from matplotlib.animation import FFMpegWriter
 from matplotlib.animation import FuncAnimation
+dt = 0.02 # Simulation timestep required for a 50 fps gif
 ani = FuncAnimation(...)
-ani.save('path/to/save/animation.gif', writer=FFMpegWriter(fps=50))
+ani.save('path/to/save/animation.gif', writer=FFMpegWriter(fps=int(1/dt)))
 ```
 
 Please open an issue for installation difficulties, bugs found in the animation scripts or suggested improvements.

@@ -49,4 +49,4 @@ ani = FuncAnimation(fig,
 plt.show()
 
 # Uncomment to save the animation to a local file
-# ani.save('/path/to/save/animation.mp4', writer=FFMpegWriter(fps=50))
+# ani.save('/path/to/save/animation.mp4', writer=FFMpegWriter(fps=int(1/dt)))

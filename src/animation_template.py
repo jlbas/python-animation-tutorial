@@ -23,7 +23,7 @@ ax.axis('scaled')
 # ax.axis([x_min, x_max, y_min, y_max])
 
 # Create and add some patches to the axis
-patch_list = [...]
+patch_list = []
 for patch in patch_list:
     ax.add_patch(patch)
 

@@ -66,6 +66,9 @@ This [script](src/circle_scaling.py) creates an animation for a circle being sca
 
 This [script](src/circle_translation.py) creates an animation for a circle being translated along the x axis.
 
+### Polygon Rotation
+
+
 ## Contributing
 
 If you feel the need to demonstrate additional animation functionalities, make a merge request and add a short description and video to the [README](README.md). Here is an example showing how to save a gif of your animation from the Python script:

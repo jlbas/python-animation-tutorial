@@ -31,6 +31,8 @@ Execute the Python script of your choice from the `src` directory.
 
 ## Code Description
 
+It could be helpful to read this description alongside the [animation_template.py](src/animation_template.py) script.
+
 ### Structure
 
 There are many approaches we could take to generate an animation. For simplicity, we will separate the simulation from the animation. The scripts follow this general structure:
@@ -46,7 +48,9 @@ There are many approaches we could take to generate an animation. For simplicity
 
 ### Implementation Approach
 
-To create animations, we will first create a shape and then perform transformations at each timestep. In Python, this can be accomplished by manipulating [patches](https://matplotlib.org/3.3.3/api/patches_api.html) from the `matplotlib` package. This module provides many useful subclasses, which will help us to create and manipulate various shapes.
+To make an animation, we will first create a shape and then perform transformations on that shape at fixed timesteps. In Python, this can be accomplished by manipulating [patches](https://matplotlib.org/3.3.3/api/patches_api.html) from the `matplotlib` package. This module provides many useful subclasses, which will help us create and manipulate various shapes.
+
+More specifically, we will make use of the [FuncAnimation](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.animation.FuncAnimation.html) class from the `matplotlib.animation` module. This class creates an animation by repeatedly calling the `animation` function, where we perform the desired transformations on the patches. When instantiating the `FuncAnimation` class, we will set the optional parameter `blit=True`. This helps with performance since only patches that have been changed will be updated in the figure. By specifying this parameter to `True`, `FuncAnimation` expects an iterable list of artists to be returned by `animation`.
 
 ## Scripts
 
@@ -57,6 +61,10 @@ To create animations, we will first create a shape and then perform transformati
 This [script](src/circle_scaling.py) creates an animation for a circle being scaled up and down, fixed at the origin.
 
 ### Circle Translation
+
+![Translating a circle](media/circle_translation.gif)
+
+This [script](src/circle_translation.py) creates an animation for a circle being translated along the x axis.
 
 ## Contributing
 

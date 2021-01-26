@@ -17,16 +17,16 @@ radius_log = [radius]   # Array to keep track of simulation data
 while radius < 5:
     radius += dt * d_radius
     radius_log.append(radius)
+# Change direction
+d_radius = -d_radius
 while radius > 1:
-    radius -= dt * d_radius
+    radius += dt * d_radius
     radius_log.append(radius)
 
 # Initialize the plot
 fig, ax = plt.subplots()
-fig.set_size_inches(6, 6)
 ax.axis('scaled')
 ax.axis([-6, 6, -6, 6])
-ax.axis('off')
 
 # Create and add a circle patch to the axis
 patch = Circle((0, 0), radius=radius_log[0])
@@ -40,11 +40,13 @@ def animate(i):
 # Specify the animation parameters and call animate
 ani = FuncAnimation(fig,
     animate,
-    frames=len(radius_log),
-    interval=int(1000 * dt),
-    blit=True,
-    repeat=False)
+    frames=len(radius_log),     # Total number of frames in the animation
+    interval=int(1000 * dt),    # Set the length of each frame (milliseconds)
+    blit=True,                  # Only update patches that have changed (more efficient)
+    repeat=False)               # Only play the animation once
 
+# Play the animation
 plt.show()
 
-ani.save('../media/circle_scaling.gif', writer=FFMpegWriter(fps=50))
+# Uncomment to save the animation to a local file
+# ani.save('/path/to/save/animation.mp4', writer=FFMpegWriter(fps=50))

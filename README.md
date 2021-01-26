@@ -19,9 +19,21 @@ pip install matplotlib numpy
 
 If you prefer to use Python in an isolated workspace, checkout [Pipenv & Virtual Environments](https://docs.python-guide.org/dev/virtualenvs/). For a complete overview of the official best practices for package management, see the [Python Packaging User Guide](https://packaging.python.org/).
 
-## Code Structure
+## Usage
 
-There are many approaches we could take to generate an animation. For simplicity, we will separate the simulation from the animation. These scripts all have the following general structure:
+Clone this repo somewhere onto your machine:
+
+```
+git clone https://git.uwaterloo.ca/autonomous-systems-lab/python-animation-tutorial.git
+```
+
+Execute the Python script of your choice from the `src` directory.
+
+## Code Description
+
+### Structure
+
+There are many approaches we could take to generate an animation. For simplicity, we will separate the simulation from the animation. The scripts follow this general structure:
 
 1. Run the simulation:
 	1. Initialize the parameters
@@ -32,16 +44,29 @@ There are many approaches we could take to generate an animation. For simplicity
 	3. Update the patches at each timestep using the logged values
 3. Play and optionally save the animation to a local file
 
+### Implementation Approach
+
+To create animations, we will first create a shape and then perform transformations at each timestep. In Python, this can be accomplished by manipulating [patches](https://matplotlib.org/3.3.3/api/patches_api.html) from the `matplotlib` package. This module provides many useful subclasses, which will help us to create and manipulate various shapes.
+
 ## Scripts
 
-Click to expand any of the following items to view a description and video of the corresponding script:
-
-<p>
-<details>
-<summary>Circle Scaling</summary>
+### Circle Scaling
 
 ![Scaling a circle](media/circle_scaling.gif)
 
-This [script](src/circle_scaling.py) creates an animation for a circle fixed at the origin, being scaled up and down.
-</details>
-</p>
+This [script](src/circle_scaling.py) creates an animation for a circle being scaled up and down, fixed at the origin.
+
+### Circle Translation
+
+## Contributing
+
+If you feel the need to demonstrate additional animation functionalities, make a merge request and add a short description and video to the [README](README.md). Here is an example showing how to save a gif of your animation from the Python script:
+
+```python
+from matplotlib.animation import FFMpegWriter
+from matplotlib.animation import FuncAnimation
+ani = FuncAnimation(...)
+ani.save('path/to/save/animation.gif', writer=FFMpegWriter(fps=50))
+```
+
+Please open an issue for installation difficulties, bugs found in the animation scripts or suggested improvements.

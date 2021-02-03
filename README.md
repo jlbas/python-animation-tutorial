@@ -31,8 +31,6 @@ After installing the required libraries, execute the Python script of your choic
 
 ## Code Description
 
-It might be helpful to read this description alongside the [animation_template.py](src/animation_template.py) script.
-
 ### Structure
 
 There are many approaches we could take to generate an animation. For simplicity, we will separate the simulation from the animation. The scripts in this repo have the following structure:

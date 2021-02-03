@@ -7,21 +7,37 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.animation import FFMpegWriter
 from matplotlib.patches import Circle
 
-# Shape and simulation parameters
+# --------------------------------------------------------------------------------------------------
+# Initialize the parameters
+# --------------------------------------------------------------------------------------------------
+
 dt = 0.01               # Simulation timestep (s)
 radius = 1              # Current radius value
 d_radius = 1            # Rate of change (units/s)
 radius_log = [radius]   # Array to keep track of simulation data
 
-# Scale the circle to its max and min size, logging the radius at each timestep
+# --------------------------------------------------------------------------------------------------
+# Simulation
+#
+# Here, we scale the circle to its max and min size. At every timestep, we keep track of the radius
+# by appending it to our radius_log list.
+# --------------------------------------------------------------------------------------------------
+
 while radius < 5:
     radius += dt * d_radius
     radius_log.append(radius)
-# Change direction
+
 d_radius = -d_radius
+
 while radius > 1:
     radius += dt * d_radius
     radius_log.append(radius)
+
+# --------------------------------------------------------------------------------------------------
+# Animation
+#
+# Using the simulation data, we now make the animation
+# --------------------------------------------------------------------------------------------------
 
 # Initialize the plot
 fig, ax = plt.subplots()

@@ -8,22 +8,36 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.animation import FFMpegWriter
 from matplotlib.patches import Circle
 
-# Shape and simulation parameters
+# --------------------------------------------------------------------------------------------------
+# Initialize the parameters
+# --------------------------------------------------------------------------------------------------
+
 dt = 0.01                   # Simulation timestep (s)
-radius = 1                  # Circle radius
+radius = 1                  # Current radius value
 pos = np.array([0.0, 0.0])  # Current position (x, y)
 pos_log = [pos]             # Array to keep track of simulation data
 v = np.array([3.0, 0.0])    # Speed of the circle (v_x, v_y)
 
-# Translate the circle along the x axis, logging the position at each timestep
+# --------------------------------------------------------------------------------------------------
+# Simulation
+#
+# Here, we translate the circle along the x-axis. At every timestep, we keep track of its position 
+# by appending it to our pos_log list
+# --------------------------------------------------------------------------------------------------
+
 while pos[0] < 5:
     pos += dt * v
     pos_log.append(list(pos))
-# Change direction
 v = -v
 while pos[0] > 0:
     pos += dt * v
     pos_log.append(list(pos))
+
+# --------------------------------------------------------------------------------------------------
+# Animation
+#
+# Using the simulation data, we now make the animation
+# --------------------------------------------------------------------------------------------------
 
 # Initialize the plot
 fig, ax = plt.subplots()

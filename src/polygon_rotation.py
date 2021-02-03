@@ -1,5 +1,5 @@
 """
-Animation: Translating a circle along the x axis
+Animation: Rotating a polygon
 """
 
 import numpy as np
@@ -8,19 +8,34 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.animation import FFMpegWriter
 from matplotlib.patches import Polygon
 
-# Shape and simulation parameters
+# --------------------------------------------------------------------------------------------------
+# Initialize the parameters
+# --------------------------------------------------------------------------------------------------
+
 dt = 0.01                                           # Simulation timestep (s)
 coords = np.array([[-1,0], [0,1], [1,0], [0,-1]])   # Shape coordinates
 th = 0                                              # Current heading
 th_log = [th]                                       # Array to keep track of simulation data
 w = 1                                               # Angular velocity of the shape (rad/s)
 
-# Translate the circle along the x axis, logging the position at each timestep
+# --------------------------------------------------------------------------------------------------
+# Simulation
+#
+# Here, we rotate the shape 2*pi rads. At every timestep, we only have to keep track of the heading 
+# by appending it to our th_log list.
+# --------------------------------------------------------------------------------------------------
+
 while th < 2 * np.pi:
     th += dt * w
     th_log.append(th)
 
-# Initialize the plot
+# --------------------------------------------------------------------------------------------------
+# Animation
+#
+# Using the simulation data, we now make the animation. Using a rotation matrix on the polygon's 
+# orignal coordinates, we set the coordinates as specified by the corresponding heading value.
+# --------------------------------------------------------------------------------------------------
+
 fig, ax = plt.subplots()
 ax.axis('scaled')
 ax.axis([-2, 2, -2, 2])
